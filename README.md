@@ -55,7 +55,7 @@ There some tools that can't be installed by apt manager, so it's necesary to com
 # Clone the repository
 git clone https://github.com/ivndot/dotfiles.git 
 # Enter directory
-cd debian_dotfiles
+cd dotfiles
 # Copy dot files 
 cp -r config/* $HOME/.config/
 # Copy tmux.conf and zshrc
