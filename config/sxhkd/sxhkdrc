@@ -36,6 +36,10 @@ super + shift + {f,w,e}
 	{thunar,firefox,code}
 
 ##---------- System Keys ----------##
+# Change Keyboard Layout
+#alt + Caps_Lock
+alt + Escape
+        setxkbmap "~"{us,latam}
 
 # Take a screenshot
 ctrl + Print

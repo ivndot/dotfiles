@@ -6,7 +6,7 @@ killall -q polybar
 int=$(iwgetid | getn 1)
 echo ${int}
 
-sed -i "s/interface = .*/interface = \"$int\"/g" ~/.config/polybar/config
+sed -i "s/interface = .*/interface = \"$int\"/g" ~/.config/polybar/config.ini
 
 
 # Launch mybar

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ -n $(xrandr -q | grep 'DP-1 connected') ]]; then
+  # If DP-1 is connected (Display Port) 
+  # Only show Display Port monitor
+  xrandr --output DP-1 --primary --mode 1920x1080 --rotate normal #--output LVDS-1 --off
+  xrandr --auto && xrandr --output LVDS-1 --off
+  bspc monitor DP-1 -d 1 2 3 4 5 6  
+else
+  # If DP-1 is disconnected (Display Port) 
+  # Only show Laptop monitor
+  xrandr --output LVDS-1 --primary --mode 1366x768 --rotate normal
+  bspc monitor LVDS-1 -d 1 2 3 4 5 6 
+fi
