@@ -7,14 +7,19 @@
 #   ██╔══██╗╚════██║██╔═══╝ ██║███╗██║██║╚██╔╝██║   #
 #   ██████╔╝███████║██║     ╚███╔███╔╝██║ ╚═╝ ██║   #
 #   ╚═════╝ ╚══════╝╚═╝      ╚══╝╚══╝ ╚═╝     ╚═╝   #                                    
-##################### By: Rxyhn  ####################
+##################### By: ivndot  ####################
+
+# ##############################################################################
+# #                                  RESTART                                  # 
+# ##############################################################################
+$HOME/.config/bspwm/bin/kill_init_process 
 
 # ##############################################################################
 # #                                  ENV VARS                                  # 
 # ##############################################################################
 
 ## Environments
-export PATH="${PATH}:${HOME}/.config/bspwm/bin"
+export PATH="${PATH}:${HOME}/.config/bspwm/bin:${HOME}/.local/bin/"
 
 # Parse colors from "~/.Xresources"
 xrdb -override "${HOME}/.Xresources"
@@ -59,8 +64,10 @@ config() { bspc config "$@" & }
 # #                                 WINDOW RULES                               #
 # ##############################################################################
 
-# Execute script in bash 
-/bin/bash $HOME/.config/bspwm/bin/window_rules
+# Execute windows rules script 
+window_rules
+# Execute daemon on change of the screens (Display Port and Laptop screens)
+screen_daemon & 
 
 rule -a kitty                       follow=on focus=on
 #rule -a Code                        follow=on focus=on
@@ -92,10 +99,10 @@ picom --config $HOME/.config/picom/picom.conf &
 [ -n "$(pidof xfce-polkit)" ] || /usr/lib/xfce-polkit/xfce-polkit &
 
 # Run power manager.
-xfce4-power-manager &
+#xfce4-power-manager &
 
 # Run mpd if doesn't started.
-[ -n "$(pidof mpd)" ] || mpd &
+#[ -n "$(pidof mpd)" ] || mpd &
 
 # Execute bspwm-specific scripts.
 bspfloat &
@@ -103,11 +110,11 @@ bspfloat &
 # Start feh wallpaper.
 feh --no-fehbg --bg-fill $HOME/Pictures/wallpapers/background2.png
 
-
 # Fix cursor.
 xsetroot -cursor_name left_ptr 
 
-
+# Run script that disable wlp3s0 wlan interface in the background
+sudo /opt/script_disable_wlan_interface.sh &
 # ##############################################################################
 # #                            GENERAL CONFIGURATION                           #
 # ##############################################################################

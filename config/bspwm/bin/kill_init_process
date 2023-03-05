@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Quit the bin directory from PATH
+export PATH=$(echo $PATH | sed -e 's+:/home/ivn/.config/bspwm/bin++')
+
+# Kill all instance process initialized in the bspwmrc file
+killall -q sxhkd
+killall -q picom
+killall -q bspfloat
+killall -q script_disable_wlan_interface.sh 
+

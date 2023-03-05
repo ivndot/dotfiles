@@ -1,6 +1,6 @@
-# Debian 10 Setup
+# Debian 11 Setup
 
-This is the guide step by step to configure the setup on Debian.
+This is a guide step by step to configure my setup on Debian 11.
 
 ![Image 1](./preview/screenshot.png)
 
@@ -20,11 +20,11 @@ This is the guide step by step to configure the setup on Debian.
 - **Lock Screen:** betterlockscreen
 - **Image viewer:** feh
 - **ScreenShot tool:** flameshot
-- **Command line editor:** neo vim
+- **Command line editor:** neovim
 - **Vim theme:** Nvim Chad
 - **Syntax highlight:** zsh-syntax-highlighting
 - **Prompt autosuggestions:** zsh-autosuggestions
-- **Terminal multiplexer:** tmux
+- **Terminal multiplexer:** tmux (kitty by default has a multiplexer, you can jump install this tool)
 
 ## Install dependencies
 
@@ -39,8 +39,7 @@ There are some tools that can't be installed by apt manager, so it's necesary to
 - [picom](https://github.com/yshui/picom) (This package can be found on Debian 11 - Bulleye)
 - [betterlockscreen](https://github.com/betterlockscreen/betterlockscreen) (First install i3lock-color and imagemagick)
 - [polybar](https://github.com/polybar/polybar/wiki/Compiling) (This package can be found on Debian 11 - Bulleye)
-
-> If you want to install [NvChad](https://nvchad.github.io/getting-started/setup) is necessary the 0.6 version of Neo Vim [(Install here)](https://github.com/neovim/neovim/releases/tag/v0.6.1)
+- [NvChad](https://nvchad.com/quickstart/install) (This is a neovim configuration with a beatiful UI)
 
 > If you want to install themes for tmux get [tpm](https://github.com/tmux-plugins/tpm)
 
@@ -72,7 +71,7 @@ cp .tmux.conf .zshrc $HOME/
 
 Reboot the machine
 
-```
+```sh
 sudo reboot now
 ```
 

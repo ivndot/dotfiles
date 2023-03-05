@@ -27,7 +27,7 @@ super + m
 
 # Lockscreen
 super + l
-    	betterlockscreen -l
+  betterlockscreen -l
 
 ##---------- Applications ----------##
 
@@ -66,6 +66,10 @@ super + {_,shift + }c
 # Reload Keybindings
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# Reload polybar
+super + p
+        $HOME/.config/polybar/launch.sh
 
 # kill window
 ctrl + super + Escape

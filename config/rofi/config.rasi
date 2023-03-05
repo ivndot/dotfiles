@@ -4,6 +4,7 @@ configuration {
   /*drun-display-format: "{name}";*/
   font: "Cartograph CF 12";
   show-icons: true;  
+  drun-icon-theme: true;
   /*icons-theme: "Papirus";*/
   modi: "window,run,drun";
 }
