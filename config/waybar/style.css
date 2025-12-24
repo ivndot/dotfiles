@@ -1,0 +1,135 @@
+@import "mocha.css";
+
+* {
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
+#waybar {
+    background-color: transparent;
+}
+
+#waybar .module {
+    color: @text;
+    padding: 0px 0px;
+    margin: -10px 5px -10px;
+    border: 2px;
+}
+
+#waybar .module:hover {
+    color: @subtext1;
+}
+
+#window#waybar {
+    color: @text;
+    background-color: @base;
+    transition-property:  background-color;
+    transition-duration: 0.5s;
+    border: 2px solid @mauve;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 2px;
+    padding: 0px 5px;
+    margin: 5px 0px;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px transparent;
+}
+
+#workspaces button {
+    color: @text;
+    padding: 10px;
+    animation: ws_normal 2s ease-in-out 1;
+}
+
+#workspaces button.active {
+    color: @sapphire;
+    animation: ws_active 2s ease-in-out 1;
+    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button:hover {
+    color: @sapphire;
+}
+
+#tags button {
+    color: @mauve;
+    background: @base;
+    border-radius: 0px;
+    padding: 0px 0px;
+    margin: 5px 0px;
+}
+
+#tags button.occupied {
+    color: @mantle;
+}
+
+#tags button.focused {
+    color: @sky;
+}
+
+#tags button.urgent {
+    color: @red;
+}
+
+#clock {
+    font-size: 15px;
+}
+
+#custom-notification {
+    color: @text;
+}
+
+#sysinfo,
+#player,
+#workspaces,
+#sysstatus,
+#connectivity{
+    background: @base;     
+    margin: 0px 2px;
+    padding: 0px 5px;
+    border-radius: 6px;
+    background: @base; 
+    border: 2px;
+}
+
+#bluetooth,
+#custom-pkg-aur {
+  font-size: 15px;
+}
+
+#custom-next, #custom-pause, #custom-previous {
+  font-size: 15px;
+}
+
+#network.disconnected,
+#pulseaudio.muted,
+#wireplumber.muted {
+    color: @red;
+}
+
+#battery.charging,
+#battery.plugged {
+    background-color: rgba(166, 227, 161, 0.60);
+    padding: 5px 10px;
+}
+
+label:focus {
+    background-color: @base;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
