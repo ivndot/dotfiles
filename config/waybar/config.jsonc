@@ -23,6 +23,7 @@
   ],
   "modules-right": [
     "group/sysstatus",
+    "group/keyboard",
     "group/connectivity"
   ],
 
@@ -54,10 +55,16 @@
       "battery"
     ]
   },
+  "group/keyboard": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/language",
+      "keyboard-state"
+    ]
+  },
   "group/connectivity": {
     "orientation": "horizontal",
     "modules": [
-      "keyboard-state",
       "bluetooth",
       "network",
       "custom/power"
@@ -85,8 +92,7 @@
     "format": " {usage:>2}%"
   },
   "temperature": {
-    "thermal-zone": 2,
-    //"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input", --> to change
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input", 
     "format-critical": "{temperatureC}°C {icon}",
     "critical-threshold": 80,
     "interval": 2,
@@ -95,22 +101,13 @@
     "on-click": "kitty -e zsh -c 'btop; exec zsh'"
   },
   "disk": { 
-    "interval": 15, "format": "󰋊 {percentage_used:>2}%"
+    "interval": 15, "format": "󰋊{percentage_used:>2}%"
   },
   "memory": {
     "interval": 2,
     "format": " {:>2}%"
   },
-  "keyboard-state": {
-    "numlock": false,
-    "capslock": true,
-    "format": "{icon}",
-    "format-icons": {
-      "locked": " ",
-      "unlocked": " "
-    }
-  },
-   "mpris": {
+  "mpris": {
      "format": "{player_icon} {title} - {artist} ",
      "format-paused": "{status_icon} {title} - {artist}",
      "player-icons": {
@@ -175,8 +172,8 @@
   **/
   "hyprland/workspaces": {
     "on-click": "activate",
-    "activate-only": false,
-    "all-outputs": false,
+    "all-outputs": true,
+    "show-special": false,
     "format": "{icon}",
     "format-icons": {
       "default": "",
@@ -184,7 +181,10 @@
       "urgent": "!"
     },
     "persistent-workspaces": {
-      "*": 4
+      "1": [],
+      "2": [],
+      "3": [], 
+      "4": [] 
     }
   },
 
@@ -211,10 +211,32 @@
     },
     "format": "{icon}",
     "format-full": "{icon}",
-    "format-plugged": " {capacity}% <span font='Font Awesome 5 Free'>\uf0e7</span> ",
+    "format-charging": "{icon} {capacity}%",
+    "format-plugged": "{icon} {capacity}%",
     "format-alt": "{icon} {capacity}%",
     "tooltip-format": "{capacity}%, about {time} left",
-    "format-icons": ["", "", "", ""]
+    "format-icons": {
+      "default": ["", "", "", ""],
+      "charging": ["󰂆", "󰂈", "󰂉", "󰂊", "󰂅"]
+    }
+  },
+  "hyprland/language": {
+    "format": "  {}", 
+    "format-en": "US",
+    "format-es": "MX",
+    "format-latam": "MX",
+    "format-english-(us)": "US",
+    "format-spanish-(latin-american)": "MX"
+  },
+  "keyboard-state": {
+    "numlock": false,
+    "capslock": true,
+    "format": "{icon}",
+    "format-unlocked": "{icon}",
+    "format-icons": {
+      "locked": " ",
+      "unlocked": " "
+    }
   },
   "bluetooth": {
     "format": "{icon}",
@@ -233,13 +255,12 @@
         "format-ethernet": "󰌗 {ipaddr}", 
         "format-linked": "󰌙 {ifname} (Sin IP)", 
         "format-disconnected": "󰖪", 
-        "format-alt": "󰛳 {ifname}", 
         "tooltip-format-wifi": " {bandwidthDownBytes}  {bandwidthUpBytes}", 
         "tooltip-format-ethernet": "󰌗 {ifname} | IP: {ipaddr}/{cidr} | GW: {gwaddr}", 
         "tooltip-format-disconnected": "󰖪 No internet connection", 
         "tooltip-format-linked": "󰌙 {ifname}: Not ip",
         "max-length": 30, 
-        "on-click": "~/.config/rofi/wifi/script.sh", 
+        "on-click": "~/.config/rofi/wifi/wifi.sh", 
         "format-icons": {
             "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"], 
             "ethernet": ["󰌗"], 

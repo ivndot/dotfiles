@@ -89,6 +89,7 @@ button:hover {
 #sysinfo,
 #player,
 #workspaces,
+#keyboard,
 #sysstatus,
 #connectivity{
     background: @base;     
@@ -114,11 +115,11 @@ button:hover {
     color: @red;
 }
 
-#battery.charging,
+/*#battery.charging,
 #battery.plugged {
     background-color: rgba(166, 227, 161, 0.60);
     padding: 5px 10px;
-}
+}*/
 
 label:focus {
     background-color: @base;

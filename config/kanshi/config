@@ -1,0 +1,19 @@
+# desktop (docking station)
+profile docked {
+    # enable external monitor and disable laptop screen
+    output DP-1 enable mode 2560x1440@59.95 position 0,0 
+    output eDP-1 disable 
+
+    # trigger the workspaces movement to the external monitor
+    exec ~/.config/hypr/scripts/smart_display.sh "DP-1"
+}
+
+# mobile (laptop only)
+profile undocked {
+    # enable laptop screen
+    output eDP-1 enable mode 1920x1200@60 position 0,0
+
+    # trigger the workspaces movement to the laptop screen
+    exec ~/.config/hypr/scripts/smart_display.sh "eDP-1"
+}
+
