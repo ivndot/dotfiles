@@ -1,5 +1,6 @@
 ## Dot files
 These are my dotfiles for `Debian 13 + Hyprland` setup. Please follow the instructions below.
+
 ![Image 1](./preview/ss_1.png)
 ![Image 2](./preview/ss_2.png)
 ![Image 3](./preview/ss_3.png)
